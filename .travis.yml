@@ -4,6 +4,18 @@ before_install:
 language: generic
 script: 
   - "docker run -e CI=true natedog/myrepo npm run test -- --coverage"
+  
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "docker1"
+  env: "Docker1-env"
+  bucket_name: "elasticbeanstalk-us-west-1-268062050410"
+  bucket_path: "docker1"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 services: 
   - docker
 sudo: required
