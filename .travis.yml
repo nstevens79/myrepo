@@ -1,6 +1,6 @@
 --- 
 before_install: 
-  - "docker build -t natedog/myrepo -f Dockerfile.dev"
+  - "docker build -t natedog/myrepo -f Dockerfile.dev ."
 language: generic
 script: 
   - "docker run -e CI=true natedog/myrepo npm run test -- --coverage"
