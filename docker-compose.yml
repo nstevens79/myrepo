@@ -2,6 +2,8 @@ version: '3'
 services:
   web:
     build:
+    environment:
+      - DEBUG=1
       context: .
       dockerfile: Dockerfile
     ports:
